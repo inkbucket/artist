@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfigService } from './services/config.service';
 
 @Component({
   selector: 'artist-lib',
@@ -8,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class ArtistComponent implements OnInit {
-  constructor() {}
+  constructor(private _configService: ConfigService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('config', this._configService.get());
+  }
 }

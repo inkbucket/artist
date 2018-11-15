@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, ArtistModule],
+  imports: [BrowserModule, ArtistModule.forRoot({ outputColorFormat: 'rgb' })],
   providers: [],
   bootstrap: [AppComponent]
 })

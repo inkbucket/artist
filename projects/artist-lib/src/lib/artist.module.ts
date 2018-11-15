@@ -1,9 +1,22 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { ArtistComponent } from './artist.component';
+import { artistDefaultConfig, DEFAULT_CONFIG } from './config';
+import { ArtistConfig } from './models';
 
 @NgModule({
   declarations: [ArtistComponent],
-  imports: [],
   exports: [ArtistComponent]
 })
-export class ArtistModule {}
+export class ArtistModule {
+  static forRoot(globalConfig: Partial<ArtistConfig> = {}): ModuleWithProviders {
+    return {
+      ngModule: ArtistModule,
+      providers: [
+        {
+          provide: DEFAULT_CONFIG,
+          useValue: { ...artistDefaultConfig, ...globalConfig }
+        }
+      ]
+    };
+  }
+}
