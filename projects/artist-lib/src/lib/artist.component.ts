@@ -3,15 +3,11 @@ import { ConfigService } from './services/config.service';
 
 @Component({
   selector: 'artist-lib',
-  template: `
-    <p>artist-lib works!</p>
-  `,
-  styles: []
+  templateUrl: './artist.template.html'
 })
 export class ArtistComponent implements OnInit {
+  screens = [];
   constructor(private _configService: ConfigService) {}
 
-  ngOnInit() {
-    console.log('config', this._configService.get());
-  }
+  ngOnInit() {}
 }
