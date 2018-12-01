@@ -1,5 +1,6 @@
+import { HostBinding } from '@angular/core';
 import { ArtistScreen } from '../models';
 
 export abstract class ArtistBaseScreen implements ArtistScreen {
-  abstract metaData;
+  @HostBinding('class') className = 'ArtScreen';
 }

@@ -1,0 +1,16 @@
+.artist--comp {
+  &.menubar {
+    background: #e9e9e9;
+  }
+  .menubar--list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+  }
+  .menubar--list-item {
+    font-size: 13px;
+    padding: 8px 0;
+  }
+}

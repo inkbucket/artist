@@ -1,0 +1,23 @@
+.ArtToolbar {
+  ul.ArtToolbar__tools {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    line-height: 1;
+    border-top: 1px solid #e4e8fb;
+    justify-content: space-around;
+  }
+  ul.ArtToolbar__tools li {
+    padding: 4px 4px;
+    font-size: 15px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+  }
+  ul.ArtToolbar__tools li:hover {
+    opacity: 1;
+  }
+}

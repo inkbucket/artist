@@ -1,0 +1,55 @@
+.artist--comp {
+  &.slider--container {
+    border: 1px solid #fff;
+    display: inline-block;
+    width: 100%;
+    height: 1rem;
+    border-radius: 2px;
+    background-color: #fff;
+    position: relative;
+  }
+
+  .slider--slider {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+    background: #eee;
+  }
+
+  .slider--handle {
+    display: inline-block;
+    position: absolute;
+    background: transparent;
+    z-index: 5;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    border: 2px solid #fff;
+    top: 0;
+    left: 0;
+  }
+
+  .hueBg {
+    background: linear-gradient(
+      to right,
+      hsl(0, 100%, 50%),
+      hsl(60, 100%, 50%),
+      hsl(120, 100%, 50%),
+      hsl(180, 100%, 50%),
+      hsl(240, 100%, 50%),
+      hsl(300, 100%, 50%),
+      hsl(360, 100%, 50%)
+    ) !important;
+  }
+
+  .redBg {
+    background: red;
+  }
+  .greenBg {
+    background: green;
+  }
+  .blueBg {
+    background: blue;
+  }
+}

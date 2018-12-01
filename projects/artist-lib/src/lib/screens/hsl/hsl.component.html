@@ -1,0 +1,26 @@
+<artist-slider-group channel="hsl">
+  <artist-slider
+    label="Hue"
+    [min]="0"
+    [max]="360"
+    channel="hsl.h"
+    [channelIndex]="0"
+    [bgClass]="'hueBg'"
+  ></artist-slider>
+  <artist-slider
+    label="Saturation"
+    [min]="0"
+    [max]="100"
+    channel="hsl.s"
+    [channelIndex]="1"
+    [range]="100"
+  ></artist-slider>
+  <artist-slider
+    label="Lightness"
+    [min]="0"
+    [max]="100"
+    channel="hsl.l"
+    [channelIndex]="2"
+    [range]="100"
+  ></artist-slider>
+</artist-slider-group>

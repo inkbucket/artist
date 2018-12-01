@@ -1,0 +1,22 @@
+<div class="ArtSlider__Container">
+  <div class="ArtSlider__Info" *ngIf="label">
+    <div class="ArtSlider__Label">{{ label }}</div>
+    <div class="ArtSlider__Value">{{ getValue() }}</div>
+  </div>
+  <div class="ArtSlider__Controls">
+    <div class="ArtSlider__Control"><i class="ArtIcon -chevron-left" (click)="dec()"></i></div>
+    <div class="ArtSlider__Control -expand">
+      <div
+        class="ArtSlider__Handlebar"
+        artist-cursor
+        (change)="onHandleChange($event)"
+        [lockY]="true"
+        [position]="position"
+      >
+        <div class="ArtSlider__Bar" [ngClass]="bgClass"></div>
+        <div class="ArtSlider__Handle"></div>
+      </div>
+    </div>
+    <div class="ArtSlider__Control"><i class="ArtIcon -chevron-left -rotate-right" (click)="inc()"></i></div>
+  </div>
+</div>

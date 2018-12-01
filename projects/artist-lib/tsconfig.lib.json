@@ -3,7 +3,7 @@
   "compilerOptions": {
     "outDir": "../../out-tsc/lib",
     "target": "es2015",
-    "module": "es2015",
+    "module": "esnext",
     "moduleResolution": "node",
     "declaration": true,
     "sourceMap": true,
@@ -12,10 +12,16 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "types": [],
-    "lib": [
-      "dom",
-      "es2018"
-    ]
+    "lib": ["dom", "es2018"],
+    "baseUrl": "./projects/artist-lib/",
+    "paths": {
+      "@lib/*": ["src/lib/*"],
+      "@comps/*": ["src/lib/components/*"],
+      "@screens/*": ["src/lib/screens/*"],
+      "@dir/*": ["src/lib/directives/*"],
+      "@operators/*": ["src/lib/operators/*"],
+      "@services/*": ["src/lib/services/*"]
+    }
   },
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,
@@ -25,8 +31,5 @@
     "strictInjectionParameters": true,
     "enableResourceInlining": true
   },
-  "exclude": [
-    "src/test.ts",
-    "**/*.spec.ts"
-  ]
+  "exclude": ["src/test.ts", "**/*.spec.ts"]
 }

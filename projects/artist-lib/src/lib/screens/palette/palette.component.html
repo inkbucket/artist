@@ -1,3 +1,8 @@
-<p>
-  palette works!
-</p>
+<div class="ArtScreen__Container">
+  <div class="ArtScreen__Body"><artist-palette-bar></artist-palette-bar></div>
+  <div class="ArtScreen__Bottom">
+    <artist-slider-group channel="hsl">
+      <artist-slider [min]="0" [max]="360" channel="hsl.h" [channelIndex]="0" bgClass="-hue"></artist-slider>
+    </artist-slider-group>
+  </div>
+</div>
