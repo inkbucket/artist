@@ -32,7 +32,7 @@ export class PaletteBarComponent implements OnInit, AfterViewInit {
         this._hue = hue;
         this.changePaletteBg(hue, alpha);
       });
-    this._engine.triggerColorChange('PALETTEE');
+    this._engine.triggerColorChange('ABC');
   }
 
   ngOnInit() {}

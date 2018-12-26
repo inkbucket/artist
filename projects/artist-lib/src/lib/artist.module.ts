@@ -1,5 +1,6 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ToppyModule } from 'toppy';
 import { ArtistComponent } from './artist.component';
 import { InputComponent } from './components/input/input.component';
 import { MenubarComponent } from './components/menubar/menubar.component';
@@ -14,8 +15,10 @@ import { artistDefaultConfig, DEFAULT_CONFIG } from './config';
 import { CopyToClipboardDirective } from './directives/copy-to-clipboard/copy-to-clipboard.directive';
 import { CursorDirective } from './directives/cursor/cursor.directive';
 import { InputDirective } from './directives/input/input.directive';
+import { PickerDirective } from './directives/picker/picker.directive';
 import { PreviewDirective } from './directives/preview/preview.directive';
 import { RandomDirective } from './directives/random/random.directive';
+import { TooltipDirective } from './directives/tooltip/tooltip.directive';
 import { ArtistConfig } from './models';
 import { CmykScreen } from './screens/cmyk/cmyk.component';
 import { CollectionsScreen } from './screens/collections/collections.component';
@@ -49,14 +52,22 @@ const SCREENS = [
   PreviewScreen,
   ScaleScreen
 ];
-const DIRECTIVES = [CopyToClipboardDirective, InputDirective, RandomDirective, CursorDirective, PreviewDirective];
+const DIRECTIVES = [
+  CopyToClipboardDirective,
+  InputDirective,
+  RandomDirective,
+  CursorDirective,
+  PreviewDirective,
+  PickerDirective,
+  TooltipDirective
+];
 const SERVICES = [];
 
 @NgModule({
-  imports: [BrowserModule],
+  imports: [BrowserModule, ToppyModule],
   declarations: [ArtistComponent, ...SCREENS, ...COMPONENTS, ...DIRECTIVES],
-  entryComponents: [...SCREENS],
-  exports: [ArtistComponent],
+  entryComponents: [...SCREENS, ArtistComponent],
+  exports: [ArtistComponent, PickerDirective],
   providers: [...SERVICES]
 })
 export class ArtistModule {

@@ -30,13 +30,14 @@ export class CursorDirective implements AfterViewInit, OnChanges {
     on([this._sliderEl, this._handleEl], 'touchstart', this._tapstart, {
       passive: false
     });
+    this.update(this.position);
   }
 
   ngOnInit() {}
 
   ngOnChanges(changes) {
-    const { x, y, triggerChange } = changes.position.currentValue;
-    this.update(x, y, triggerChange);
+    console.log(changes);
+    this.update(changes.position.currentValue);
   }
 
   trigger() {
@@ -44,10 +45,11 @@ export class CursorDirective implements AfterViewInit, OnChanges {
     this._tapmove();
   }
 
-  update(x = 0, y = 0, triggerChange = true) {
+  update(position) {
     if (!this._sliderEl) {
       return;
     }
+    const { x = 0, y = 0, triggerChange = true } = position;
     this._wrapperRect = this._sliderEl.getBoundingClientRect();
     this._tapmove({
       clientX: this._wrapperRect.left + x,

@@ -1,25 +1,39 @@
-import { AfterContentInit, Component, ContentChildren, HostBinding, Input, OnInit, QueryList } from '@angular/core';
+import {
+  AfterContentInit,
+  Component,
+  ContentChildren,
+  HostBinding,
+  Input,
+  OnDestroy,
+  OnInit,
+  QueryList
+} from '@angular/core';
 import { ColorEngine } from 'artist/lib/services/engine.service';
 import { generateID } from 'artist/lib/utilities/helpers';
-import { merge } from 'rxjs';
+import { merge, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { SliderComponent } from '../slider/slider.component';
 
 @Component({
   selector: 'artist-slider-group',
   templateUrl: './slider-group.component.html'
 })
-export class SliderGroupComponent implements OnInit, AfterContentInit {
+export class SliderGroupComponent implements OnInit, AfterContentInit, OnDestroy {
   @Input() channel = '';
   @HostBinding('class') className = 'ArtSliderGroup';
   @ContentChildren(SliderComponent, { descendants: true }) sliders: QueryList<SliderComponent>;
   private _value = [];
   private _id = generateID();
+  private die: Subject<1> = new Subject();
   constructor(private _engine: ColorEngine) {}
 
   ngOnInit() {
     this._engine
       .onColorChange()
-      // .pipe(skipCurrent(this._id))
+      .pipe(
+        // skipCurrent(this._id),
+        takeUntil(this.die)
+      )
       .subscribe((data: any) => {
         console.log('init-->', data);
         if (data.emitFrom === this._id) {
@@ -64,5 +78,11 @@ export class SliderGroupComponent implements OnInit, AfterContentInit {
       return Number(val.toFixed(2));
     }
     return val;
+  }
+
+  ngOnDestroy() {
+    console.log('destroy');
+    this.die.next(1);
+    this.die.complete();
   }
 }

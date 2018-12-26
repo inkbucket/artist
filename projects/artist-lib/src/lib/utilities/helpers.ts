@@ -35,3 +35,4 @@ export function generateID() {
     .toString(36)
     .substr(2, 5);
 }
+export const delay = ms => new Promise(resolve => setTimeout(resolve, ms));

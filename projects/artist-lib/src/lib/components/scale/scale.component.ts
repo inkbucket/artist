@@ -20,6 +20,7 @@ export class ScaleComponent implements OnInit {
       });
     this._engine.triggerColorChange('ANY');
   }
+  ngAfterViewInit() {}
   colorSelected(color) {
     this._engine.setColor(color, 'SCALE');
   }

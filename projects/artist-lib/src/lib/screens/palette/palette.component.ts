@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ColorEngine } from 'artist/lib/services/engine.service';
 import { ArtistBaseScreen } from '../screen.abstract';
 
@@ -11,7 +11,7 @@ export class PaletteScreen extends ArtistBaseScreen implements OnInit {
     label: 'Palette',
     showInMenu: true
   };
-  constructor(private _engine: ColorEngine, private _dc: ChangeDetectorRef) {
+  constructor(private _engine: ColorEngine) {
     super();
   }
   ngOnInit() {}

@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, HostBinding, Input, OnInit, Outpu
 import { ColorEngine } from 'artist/lib/services/engine.service';
 import { generateID } from 'artist/lib/utilities/helpers';
 import { Subject } from 'rxjs';
+import { RelativePosition, Toppy, ToppyControl } from 'toppy';
 
 @Component({
   selector: 'artist-slider',
@@ -25,11 +26,23 @@ export class SliderComponent implements OnInit, AfterViewInit {
   private _val;
   private _x;
   private _y;
-  constructor(private _elRef: ElementRef, private _engine: ColorEngine) {}
+  private _toppyControl: ToppyControl;
+  constructor(private _elRef: ElementRef, private _engine: ColorEngine, private _toppy: Toppy) {}
 
   ngOnInit() {
     this._sliderEl = this._elRef.nativeElement.querySelector('.ArtSlider__Bar');
     this._sliderHandleEl = this._elRef.nativeElement.querySelector('.ArtSlider__Handle');
+
+    this._toppyControl = this._toppy
+      .position(
+        new RelativePosition({
+          src: this._sliderHandleEl,
+          autoUpdate: true
+        })
+      )
+      .config({})
+      .content('', { class: 'ArtTooltip' })
+      .create();
   }
 
   // ngAfterViewInit() {
@@ -75,6 +88,14 @@ export class SliderComponent implements OnInit, AfterViewInit {
     this._val = val / this.range;
     this._val = Number(this._val.toFixed(2));
     this.valueChange.next({ index: this.channelIndex, value: this._val, from: this.id });
+    this._toppyControl.updateContent(String(this._val));
+  }
+
+  onMouseEnter() {
+    this._toppyControl.open();
+  }
+  onMouseLeave() {
+    this._toppyControl.close();
   }
 
   setCurrentValue(value) {

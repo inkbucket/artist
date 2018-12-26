@@ -9,9 +9,11 @@
       <div
         class="ArtSlider__Handlebar"
         artist-cursor
-        (change)="onHandleChange($event)"
-        [lockY]="true"
         [position]="position"
+        (change)="onHandleChange($event)"
+        (mouseenter)="onMouseEnter($event)"
+        (mouseleave)="onMouseLeave($event)"
+        [lockY]="true"
       >
         <div class="ArtSlider__Bar" [ngClass]="bgClass"></div>
         <div class="ArtSlider__Handle"></div>

@@ -1,7 +1,9 @@
 import {
+  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   ComponentFactoryResolver,
+  ComponentRef,
   HostBinding,
   OnInit,
   ViewChild,
@@ -26,7 +28,8 @@ import { getScreensMeta } from './utilities/helpers';
   selector: 'artist-main',
   templateUrl: './artist.template.html',
   styleUrls: ['../styles/root.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class ArtistComponent implements OnInit {
   allScreens = getScreensMeta(
@@ -43,14 +46,15 @@ export class ArtistComponent implements OnInit {
     ])
   );
   selectedScreen = this.allScreens[0].name;
+  compRef: ComponentRef<{}>;
   @HostBinding('class') className = 'ArtMain';
 
   @ViewChild('holder', { read: ViewContainerRef }) holder: ViewContainerRef;
   constructor(
     private _configService: ConfigService,
     private _compFacResolver: ComponentFactoryResolver,
-    private _dc: ChangeDetectorRef,
-    private _event: EventsService
+    private _event: EventsService,
+    private cd: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
@@ -79,7 +83,15 @@ export class ArtistComponent implements OnInit {
       this.holder.detach();
       this.holder.clear();
     }
-    this.holder.createComponent(this._compFacResolver.resolveComponentFactory(comp.screen));
-    this._dc.detectChanges();
+    if (this.compRef) {
+      this.compRef.destroy();
+    }
+    this.compRef = this.holder.createComponent(this._compFacResolver.resolveComponentFactory(comp.screen));
+    console.log('sel', screenName);
+    this.cd.detectChanges();
+  }
+
+  ngDoCheck() {
+    console.log('checkkkkk');
   }
 }
