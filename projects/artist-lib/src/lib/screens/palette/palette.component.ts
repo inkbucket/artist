@@ -1,10 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { ColorEngine } from 'artist/lib/services/engine.service';
+import { ArtistBaseScreen } from '../screen.abstract';
 
 @Component({
-  selector: 'artist-palette',
-  templateUrl: './palette.component.html',
-  styleUrls: ['./palette.component.scss']
+  selector: 'artist-palette-screen',
+  templateUrl: './palette.component.html'
 })
-export class PaletteScreen implements OnInit {
+export class PaletteScreen extends ArtistBaseScreen implements OnInit {
+  static meta = {
+    label: 'Palette',
+    showInMenu: true
+  };
+  constructor(private _engine: ColorEngine) {
+    super();
+  }
   ngOnInit() {}
 }

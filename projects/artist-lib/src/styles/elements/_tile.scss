@@ -1,0 +1,22 @@
+.ArtTile {
+  display: inline-block;
+  margin: 5px 0 0 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
+  &.-tiny {
+    width: 15px;
+    height: 15px;
+  }
+  &.-small {
+    width: 20px;
+    height: 20px;
+  }
+  &.-large {
+    width: 40px;
+    height: 40px;
+  }
+  &.-no-margin {
+    margin: 0;
+  }
+}

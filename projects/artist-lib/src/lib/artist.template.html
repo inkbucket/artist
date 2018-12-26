@@ -1,2 +1,7 @@
-<p>artist-lib works!</p>
-<div *ngFor="let screen of screens"><ng-container *ngComponentOutlet="screen"> </ng-container></div>
+<div class="ArtMain__Container">
+  <div class="ArtMain__Screen"><ng-template #holder></ng-template></div>
+  <div class="ArtMain__ToolBar"><artist-toolbar></artist-toolbar></div>
+  <div class="ArtMain__MenuBar">
+    <artist-menubar [screens]="getScreenNames()" (screenSelected)="onScreenSelection($event)"></artist-menubar>
+  </div>
+</div>

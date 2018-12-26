@@ -1,0 +1,3 @@
+@function clr($key: 'primary') {
+  @return map-get($artist--colors, $key);
+}

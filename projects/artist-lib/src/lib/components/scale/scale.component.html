@@ -1,0 +1,9 @@
+<div class="ArtTilesCollection -small" *ngIf="colors">
+  <div class="ArtTilesCollection__title">Scale colors</div>
+  <div
+    class="ArtTile -small"
+    *ngFor="let color of colors"
+    [style.backgroundColor]="color"
+    (click)="colorSelected(color)"
+  ></div>
+</div>

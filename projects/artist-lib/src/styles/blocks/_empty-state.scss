@@ -1,0 +1,15 @@
+.ArtEmptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  .ArtEmptyState__heading {
+    font-size: 1.2rem;
+  }
+  .ArtEmptyState__subheading {
+    font-size: 0.8em;
+    opacity: 0.6;
+    margin-bottom: 1rem;
+  }
+}

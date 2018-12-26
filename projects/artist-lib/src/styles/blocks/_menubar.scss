@@ -1,0 +1,18 @@
+.ArtMenuBar {
+  .ArtMenuBar__Container {
+  }
+  .ArtMenuBar__List {
+    background: #f3f5fd;
+    border-top: 1px solid #e4e8fb;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+  }
+  .ArtMenuBar__Item {
+    font-size: 13px;
+    padding: 6px 0;
+    cursor: pointer;
+  }
+}

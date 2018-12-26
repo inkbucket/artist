@@ -1,0 +1,13 @@
+<div class="ArtScreen__Container">
+  <ng-container *ngFor="let collection of swatches">
+    <div class="ArtTilesCollection -small">
+      <div class="ArtTilesCollection__title">{{ collection.name }}</div>
+      <div
+        class="ArtTile -small"
+        *ngFor="let color of collection.colors"
+        [style.backgroundColor]="color"
+        (click)="selectColor(color)"
+      ></div>
+    </div>
+  </ng-container>
+</div>

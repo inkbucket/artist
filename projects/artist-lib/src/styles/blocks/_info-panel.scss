@@ -1,0 +1,32 @@
+.ArtInfoPanel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  .ArtInfoPanel__Preview {
+    img {
+      height: 40px;
+    }
+  }
+  .ArtInfoPanel__Content {
+    padding: 0 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    flex: 1;
+  }
+  .ArtInfoPanel__heading {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 95%;
+  }
+  .ArtInfoPanel__subheading {
+    color: rgba(0, 0, 0, 0.2);
+    font-size: 12px;
+  }
+  .ArtInfoPanel__Action {
+  }
+}

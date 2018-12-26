@@ -1,0 +1,80 @@
+$icons: (
+  square: '\e91f',
+  select-arrows: '\e91d',
+  colours: '\e91e',
+  palette: '\e921',
+  arrow-right-circle: '\e900',
+  check-circle: '\e901',
+  chevron-left: '\e902',
+  chevrons-right: '\e903',
+  circle: '\e904',
+  code: '\e905',
+  copy: '\e906',
+  droplet: '\e907',
+  eye: '\e908',
+  feather: '\e909',
+  filter: '\e90a',
+  heart: '\e90b',
+  help-circle: '\e90c',
+  image: '\e90d',
+  layers: '\e90e',
+  link: '\e90f',
+  loader: '\e910',
+  maximize: '\e911',
+  minimize: '\e912',
+  more-horizontal: '\e913',
+  refresh-cw: '\e914',
+  rotate-cw: '\e915',
+  settings: '\e916',
+  sliders: '\e917',
+  star: '\e918',
+  toggle-left: '\e919',
+  toggle-right: '\e91a',
+  trash: '\e91b',
+  close: '\e91c'
+);
+
+@font-face {
+  font-family: $artist--icon-font;
+  font-style: normal;
+  font-weight: normal;
+  src: url('#{$artist--icon-font-path}/artist.ttf?olqd7c') format('truetype'),
+    url('#{$artist--icon-font-path}/artist.woff?olqd7c') format('woff'),
+    url('#{$artist--icon-font-path}/artist.svg?olqd7c#choosy') format('svg');
+}
+
+.ArtIcon {
+  font-family: $artist--icon-font !important;
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  -moz-osx-font-smoothing: grayscale;
+  speak: none;
+  text-transform: none;
+  cursor: pointer;
+  display: inherit;
+  &:hover {
+    // transform: scale(1.1);
+  }
+  &.-illus {
+    font-size: 2rem;
+    opacity: 0.5;
+    cursor: auto;
+  }
+
+  &.-large {
+    transform: scale(1.5);
+  }
+  &.-rotate-right {
+    transform: rotate(180deg);
+  }
+}
+@each $icon in $icons {
+  .ArtIcon.-#{nth($icon, 1)} {
+    &:before {
+      content: nth($icon, 2);
+    }
+  }
+}

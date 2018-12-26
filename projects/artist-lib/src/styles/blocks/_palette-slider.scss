@@ -1,0 +1,33 @@
+.ArtPaletteSlider {
+  padding: 10px 10px 0;
+  display: block;
+  height: 100%;
+  box-sizing: border-box;
+  .ArtPaletteSlider__Container {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+    background-color: #fff;
+    position: relative;
+  }
+  .ArtPaletteSlider__Bar {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #aaa;
+    border-radius: 2px;
+  }
+  .ArtPaletteSlider__Handle {
+    display: inline-block;
+    position: absolute;
+    background: transparent;
+    z-index: 5;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    border: 2px solid #fff;
+    top: 0;
+    left: 0;
+  }
+}

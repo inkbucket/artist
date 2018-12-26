@@ -1,0 +1,14 @@
+<ul class="ArtToolbar__tools">
+  <li>
+    <span artist-copy-to-clipboard> <i class="ArtIcon -copy" artist-tooltip="copy"></i> </span>
+  </li>
+  <li><artist-input></artist-input></li>
+  <li>
+    <span artist-random> <i class="ArtIcon -rotate-cw" artist-tooltip="random"></i> </span>
+  </li>
+  <li>
+    <span (click)="navigate('scale')"><i class="ArtIcon -layers" artist-tooltip="shades"></i> </span>
+  </li>
+  <li><i class="ArtIcon -settings" (click)="navigate('settings')" artist-tooltip="settings"></i></li>
+  <li><div artist-preview class="ArtTile -tiny -no-margin" (click)="navigate('preview')" artist-tooltip="preview" ></div></li>
+</ul>

@@ -1,0 +1,29 @@
+<div class="ArtScreen__Container">
+  <div class="ArtScreen__Header" *ngIf="selectedFile">
+    <div class="ArtInfoPanel">
+      <div class="ArtInfoPanel__Preview"><img [src]="localUrl" /></div>
+      <div class="ArtInfoPanel__Content">
+        <h6 class="ArtInfoPanel__heading">{{ selectedFile.name }}</h6>
+        <span class="ArtInfoPanel__subheading">{{ selectedFile.size }} bytes</span>
+      </div>
+      <div class="ArtInfoPanel__Action"><i class="ArtIcon -close" (click)="clear()"></i></div>
+    </div>
+  </div>
+  <div class="ArtScreen__Body">
+    <div class="ArtEmptyState" *ngIf="!selectedFile">
+      <i class="ArtIcon -image -illus"></i>
+      <div class="ArtEmptyState__heading">Fetch colors from Image</div>
+      <div class="ArtEmptyState__subheading">Image should be .jpg or .png</div>
+      <input class="ArtDisplay -none" type="file" (change)="onFileChanged($event)" #fileInput />
+      <button class="ArtButton" (click)="fileInput.click()">Choose</button>
+    </div>
+    <div class="ArtTilesCollection -small" *ngIf="colors.length > 0">
+      <div
+        class="ArtTile -small"
+        *ngFor="let color of colors"
+        [style.backgroundColor]="color"
+        (click)="imageSelected(color)"
+      ></div>
+    </div>
+  </div>
+</div>

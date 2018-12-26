@@ -1,0 +1,19 @@
+<input
+  class="ArtInput__field"
+  type="text"
+  placeholder="color"
+  [value]="inputColor"
+  (keyup)="validateColor($event.target.value)"
+/>
+<!--
+  <div class="type">
+    <ul>
+      <li (click)="changeColorType('hex')">Hex</li>
+      <li (click)="changeColorType('rgb')">Rgb</li>
+      <li (click)="changeColorType('hsl')">Hsl</li>
+      <li (click)="changeColorType('hsv')">Hsv</li>
+      <li (click)="changeColorType('cmyk')">Cmyk</li>
+    </ul>
+    <h3>{{ inputColor }}</h3>
+  </div>
+-->

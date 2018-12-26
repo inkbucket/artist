@@ -1,0 +1,17 @@
+.ArtScreen {
+  background-color: #fff;
+  width: 100%;
+  .ArtScreen__Container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-x: hidden;
+    @include scrollbar();
+  }
+  .ArtScreen__Header {
+    background: #f5f6fb;
+  }
+  .ArtScreen__Body {
+    flex: 1;
+  }
+}

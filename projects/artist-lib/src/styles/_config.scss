@@ -1,0 +1,37 @@
+$artist--base-font-size: 14px;
+$artist--app-name: 'ARTIST';
+$artist--debug: false;
+$artist--font-family: acumin-pro, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Rubik', 'Inter UI', 'Nunito Sans';
+
+$artist--colors: (
+  'bg': #f8f8fa,
+  'bg2': #f3f3f7a6,
+  'bg3': #fefefe,
+  'text': #3e4150,
+  'heading': #35335a,
+  'border': #ebebf3,
+  'para': #b1b0be,
+  'dark': #000,
+  'shadow': #dddde9,
+  'InfoHeader': #3f51b5
+);
+
+$artist--font-sizes: (
+  'sm': 0.9rem,
+  'md': 1rem,
+  'lg': 1.4rem,
+  'xl': 4rem,
+  'h1': 3.2rem,
+  'h2': 2rem,
+  'h3': 1.75rem,
+  'h4': 1.5rem,
+  'h5': 1.25rem,
+  'h6': 1rem
+);
+
+$artist--border-rad: 3px;
+$artist--icon-font: 'artist';
+$artist--icon-font-path: '_icons';
+
+$artist--color-picker-width: 250px;

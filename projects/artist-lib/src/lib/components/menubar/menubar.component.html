@@ -1,0 +1,9 @@
+<div class="ArtMenuBar__Container">
+  <ul class="ArtMenuBar__List">
+    <ng-container *ngFor="let screen of screens">
+      <li class="ArtMenuBar__Item" *ngIf="screen.showInMenu" (click)="onScreenSelection(screen.label)">
+        {{ screen.label }}
+      </li>
+    </ng-container>
+  </ul>
+</div>

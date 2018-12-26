@@ -1,0 +1,10 @@
+<div class="artist--comp swatches">
+  <ng-container *ngFor="let collection of swatches">
+    <h3>{{ collection.name }}</h3>
+    <ul>
+      <li *ngFor="let color of collection.colors">
+        <span [style.background]="color" (click)="selectColor(color)"></span>
+      </li>
+    </ul>
+  </ng-container>
+</div>
